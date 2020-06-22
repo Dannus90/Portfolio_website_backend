@@ -1,13 +1,11 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
 require("./db/mongoose");
 
 const app = express();
 
-// Body Parser Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Give ability to read json
+app.use(express.json());
 
 // Import Routes
 const contactRoute = require("./routes/contact");

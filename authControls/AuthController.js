@@ -34,7 +34,8 @@ const register = async (req, res) => {
         res.status(200).json({
             fullName: fullName,
             email: email,
-            message: "User have successfully been saved to the database",
+            message:
+                "You have successfully registered. You are now being redirected to login",
         });
     } catch (err) {
         res.status(400).json({
@@ -44,7 +45,6 @@ const register = async (req, res) => {
     }
 };
 
-//MAKE SURE THIS MATCH UP WITH WHAT YOU SEND FROM THE LOGIN PAGE!
 const login = async (req, res) => {
     const { error } = loginValidation(req.body);
     if (error) return res.status(400).send(error.details[0].message);
@@ -62,7 +62,10 @@ const login = async (req, res) => {
         expiresIn: "1h",
     });
 
-    res.header("auth-token", token).send(token);
+    res.header("auth-token", token).send({
+        token: token,
+        userName: user.fullName,
+    });
 };
 
 module.exports = {
