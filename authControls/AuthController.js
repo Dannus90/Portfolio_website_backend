@@ -41,12 +41,15 @@ const register = async (req, res) => {
             const decodedToken = jwtDecode(token);
             const expiresAt = decodedToken.exp;
 
-            const { fullName, email, isAdmin } = savedUser;
+            const { _id, fullName, email, isAdmin } = savedUser;
+            const userInfo = Object.assign(
+                {},
+                { isAdmin, _id, fullName, email }
+            );
+            console.log(userInfo);
 
             res.status(200).json({
-                fullName: fullName,
-                email: email,
-                isAdmin: isAdmin,
+                userInfo,
                 message: "You have successfully registered.",
                 token,
                 expiresAt,

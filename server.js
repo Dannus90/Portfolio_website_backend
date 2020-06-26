@@ -20,7 +20,7 @@ app.use(cors());
 
 //Route middleware
 app.use("/api/sendMail", contactRoute);
-app.use("/api/addBlogPost", blogPostRoute);
+app.use("/api/BlogPosts", blogPostRoute);
 app.use("/api/user", authRouteRegister);
 app.use("/api/user", authRouteLogin);
 app.use("/blog/addpost", addBlogPost);
