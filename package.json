@@ -4,7 +4,7 @@
     "description": "server for portfolio-website",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js",
+        "start": "node --harmony server.js",
         "devStart": "nodemon server.js"
     },
     "author": "Daniel Persson",
@@ -20,8 +20,7 @@
         "jsonwebtoken": "^8.5.1",
         "jwt-decode": "^2.2.0",
         "mongoose": "^5.9.19",
-        "nodemailer": "^6.4.8",
-        "serve": "^11.3.2"
+        "nodemailer": "^6.4.8"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"
