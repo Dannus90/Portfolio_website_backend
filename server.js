@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Import Routes
 const contactRoute = require("./routes/contact");
-const blogPostRoute = require("./routes/blogPost");
+const blogPostRoute = require("./routes/blogPostRoute");
 const authRouteRegister = require("./routes/authRegister");
 const authRouteLogin = require("./routes/authLogin");
 const addBlogPost = require("./routes/addBlogPost");
