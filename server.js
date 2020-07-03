@@ -21,12 +21,12 @@ app.use(cors());
 // //More cors avoidance
 
 //Route middleware
-app.use("api/sendMail", contactRoute);
-app.use("api/BlogPosts", blogPostRoute);
-app.use("api/user", authRouteRegister);
-app.use("api/user", authRouteLogin);
-app.use("blog/addpost", addBlogPost);
-app.use("api/posts", postRoute);
+app.use("/api/sendMail", contactRoute);
+app.use("/api/BlogPosts", blogPostRoute);
+app.use("/api/user", authRouteRegister);
+app.use("/api/user", authRouteLogin);
+app.use("/blog/addpost", addBlogPost);
+app.use("/api/posts", postRoute);
 
 const PORT = process.env.PORT || 5000;
 
