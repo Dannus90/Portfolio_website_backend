@@ -4,7 +4,7 @@
     "description": "server for portfolio-website",
     "main": "server.js",
     "scripts": {
-        "start": "node --harmony server.js",
+        "start": "node server.js",
         "devStart": "nodemon server.js"
     },
     "author": "Daniel Persson",
