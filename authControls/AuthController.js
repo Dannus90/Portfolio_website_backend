@@ -79,7 +79,6 @@ const login = async (req, res) => {
     //Create and assign a token
 
     try {
-        // console.log(user);
         const { isAdmin, _id, fullName, email } = user;
         const userInfo = Object.assign({}, { isAdmin, _id, fullName, email });
         console.log(userInfo);
