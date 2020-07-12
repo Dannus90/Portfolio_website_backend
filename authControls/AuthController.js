@@ -7,6 +7,12 @@ const {
 } = require("../validation/extraValidation");
 require("dotenv").config();
 const { createToken } = require("../utils/utils");
+const { v4: uuidv4 } = require("uuid");
+const {
+    getResetRequest,
+    createResetRequest,
+    sendResetLink,
+} = require("../utils/utils");
 
 //REGISTRATION!
 
@@ -97,7 +103,30 @@ const login = async (req, res) => {
     }
 };
 
+const forgot = async (req, res) => {
+    const { email } = req.body;
+
+    const user = await User.findOne({ email: email });
+    if (!user) {
+        return res.status(400).json({
+            message: `There is no user with the email adress ${email}`,
+        });
+    } else {
+        const id = uuidv4();
+        const request = {
+            id,
+            email: user.email,
+        };
+        createResetRequest(request);
+        sendResetLink(user.email, id);
+    }
+    res.status(200).json({
+        message: `An email has been set to you with a reset link.`,
+    });
+};
+
 module.exports = {
     register,
     login,
+    forgot,
 };

@@ -23,7 +23,8 @@
         "jsonwebtoken": "^8.5.1",
         "jwt-decode": "^2.2.0",
         "mongoose": "^5.9.19",
-        "nodemailer": "^6.4.8"
+        "nodemailer": "^6.4.8",
+        "uuid": "^8.2.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.4"

@@ -12,19 +12,19 @@ const contactRoute = require("./routes/contact");
 const blogPostRoute = require("./routes/blogPostRoute");
 const authRouteRegister = require("./routes/authRegister");
 const authRouteLogin = require("./routes/authLogin");
+const authRouteForgot = require("./routes/authForgot");
 const addBlogPost = require("./routes/addBlogPost");
 const postRoute = require("./routes/posts");
 
 //Cors
 app.use(cors());
 
-// //More cors avoidance
-
 //Route middleware
 app.use("/api/sendMail", contactRoute);
 app.use("/api/BlogPosts", blogPostRoute);
 app.use("/api/user", authRouteRegister);
 app.use("/api/user", authRouteLogin);
+app.use("/api/user", authRouteForgot);
 app.use("/blog/addpost", addBlogPost);
 app.use("/api/posts", postRoute);
 
