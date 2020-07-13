@@ -13,6 +13,7 @@ const blogPostRoute = require("./routes/blogPostRoute");
 const authRouteRegister = require("./routes/authRegister");
 const authRouteLogin = require("./routes/authLogin");
 const authRouteForgot = require("./routes/authForgot");
+const authRouteReset = require("./routes/authReset");
 const addBlogPost = require("./routes/addBlogPost");
 const postRoute = require("./routes/posts");
 
@@ -25,6 +26,7 @@ app.use("/api/BlogPosts", blogPostRoute);
 app.use("/api/user", authRouteRegister);
 app.use("/api/user", authRouteLogin);
 app.use("/api/user", authRouteForgot);
+app.use("/api/user", authRouteReset);
 app.use("/blog/addpost", addBlogPost);
 app.use("/api/posts", postRoute);
 

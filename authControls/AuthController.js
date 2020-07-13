@@ -13,6 +13,7 @@ const {
     createResetRequest,
     sendResetLink,
 } = require("../utils/utils");
+const { response } = require("express");
 
 //REGISTRATION!
 
@@ -125,8 +126,41 @@ const forgot = async (req, res) => {
     });
 };
 
+// THIS IS NOT FINISHED YET!
+
+const reset = async (req, res) => {
+    const request = getResetRequest(req.body.id);
+
+    if (request) {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+        await User.findOneAndUpdate(
+            { email: request.email },
+            { password: hashedPassword },
+            { new: true },
+            (err, doc) => {
+                if (err) {
+                    return res.status(400).json({
+                        message: "Something went wrong when updating data",
+                    });
+                }
+            }
+        );
+
+        return res
+            .status(204)
+            .json({ message: "Password was updated successfully" });
+    } else {
+        return res.status(404).json({
+            message: "Password was not updated successfully",
+        });
+    }
+};
+
 module.exports = {
     register,
     login,
     forgot,
+    reset,
 };
