@@ -32,7 +32,7 @@ const getResetRequest = (id) => {
 
 const sendResetLink = (email, id) => {
     const output = `
-    <h3>You have requested a password change</h3>
+    <h3>You have requested a password change on Daniels portfolio website</h3>
     <p>To reset your password, please click the following link: ${process.env.FRONTEND_CONNECT}reset/${id}</p>`;
 
     let transporter = nodemailer.createTransport({
